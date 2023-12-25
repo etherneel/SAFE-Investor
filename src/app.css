@@ -1,0 +1,191 @@
+.dashbord {
+    width: 100%;
+    display: inline-block;
+    background-color: #F9F9F9;
+    min-height: 750px
+}
+
+.section1 {
+    width: 100%;
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+.section1 h1{
+    font-size: 21px;
+    font-weight: bolder;
+    color: #000000;
+    margin: 0;
+}
+
+.section1 p{
+    margin: 2px 0;
+    color: #848484;
+    font-size: 11px;
+}
+
+.fund {
+    width: 100%;
+    display: inline-block;
+    background-color: white;
+    padding: 15px 4px 0px 13px;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+}
+
+.fund h6{
+    margin: 0;
+    font-size: 12px;
+    color: #848484;
+    font-weight: bold;
+}
+
+.fund h2{
+    margin: 4px 0;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.grow {
+    display: flex;
+    width: 100%;
+    margin-top: 9px;
+}
+
+.grow p{
+    color: #848484;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.gropar{
+    margin: 0 !important;
+    color: #3DD26A !important;
+    font-weight: 600 !important;
+}
+
+.tbody {
+    width: 100%;
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #EAEAEA;
+}
+
+table{
+    width: 100%;
+}
+
+
+thead {
+    background-color: #EAEAEA;
+    border-radius: 10px !important;
+    display: inline-table;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+thead tr th {
+    padding: 10px;
+}
+
+tbody {
+    display: inline-table;
+    width: 100%;
+}
+
+tbody {
+    display: inline-table;
+    width: 100%;
+    background-color: white;
+    border: 1px solid gainsboro;
+}
+
+tbody tr td{
+    padding: 9px;
+}
+
+tbody tr{
+    border-bottom: 1px solid #EAEAEA;
+}
+
+tbody tr td button{
+    background-color: #302F31;
+    color: white;
+    font-size: 15px;
+    border: none;
+    min-width: 88px !important;
+    padding: 13px 13px;
+    border-radius: 10px;
+}
+
+.propasal{
+    display: flex;
+}
+.propasal h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 16px 0;
+}
+
+td {
+    width: 108px;
+    text-align: center;
+    font-size: 15px;
+}
+
+th {
+    width: 83px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+table tr, td, th {
+    border: 1px solid #f9f6f6;
+}
+
+
+/* @media only screen and (max-width: 1199px) {
+   
+   
+} 
+
+@media only screen and (max-width: 991px) {
+    .fund {
+        margin-bottom: 20px;
+    }
+
+    .proTable {
+        overflow: auto;
+    }
+   
+}
+
+@media only screen and (max-width: 768px) {
+
+}
+
+@media only screen and (max-width: 640px) {
+
+}
+
+@media only screen and (max-width: 480) {
+
+ 
+    .section1 {
+        text-align: center;
+    }
+} */
+
+  .rightsidediv{
+    position: relative !important;
+  }
+
+.MuiLinearProgress-root::before {
+    height: 10px !IMPORTANT;
+    position: fixed !important;
+    top: 0;
+    z-index: 9999;
+}

@@ -1,0 +1,92 @@
+.search_top_bar {
+    background-color: #FFFFFF;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #d3d3d3;
+    padding: 14px;
+    justify-content: flex-end;
+}
+
+
+
+.search input {
+    width: 442px;
+    padding: 5px 0 6px 33px;
+    border: 1px solid gainsboro;
+    border-radius: 11px;
+    outline: none;
+    position: relative;
+}   
+
+.search button {
+    position: absolute;
+    left: 220px;
+    background: transparent;
+    border: navajowhite;
+    top: 19px;
+}
+
+
+
+.connectwallet button {
+    background-color: #302F31;
+    border: none;
+    color: white;
+    padding: 6px 22px;
+    border-radius: 8px;
+    font-style: normal;
+    font-size: 15px;
+}
+
+
+/* @media only screen and (max-width: 1199px) {
+   
+   
+} 
+
+@media only screen and (max-width: 991px) {
+    .search_top_bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .connectwallet {
+        margin-top: 18px;
+    }
+
+    .search button {
+        left: 266px;
+        top: 21px;
+    }
+   
+}
+
+@media only screen and (max-width: 768px) {
+    .search button {
+        left: 103px;
+        top: 535px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+
+}
+
+@media only screen and (max-width: 480) {
+    .search input {
+        width: 100% !important;
+    }
+
+    .search button {
+        left: 17px;
+        top: 521px;
+    }
+
+}
+
+
+@media only screen and (max-width: 320) {
+    .search input {
+        width: 100%;
+    }
+} */

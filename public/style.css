@@ -1,0 +1,163 @@
+body {
+    font-family: 'Plus Jakarta Sans' !important;
+}
+
+@media only screen and (min-width: 1350px) {
+    .toggle_btn {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1199px) {
+    /* .navbar-expand-md .navbar-collapse {
+        display: -ms-flexbox!important;
+        display: flex!important;
+        -ms-flex-preferred-size: auto !important;
+        flex-basis: auto !important;
+        flex-direction: column !important;
+    } */
+
+    span.navbar-toggler-icon i {
+        color: white;
+        font-size: 27px;
+    }
+
+    .toggle_btn {
+        display: none;
+    }
+    
+   
+} 
+
+@media only screen and (max-width: 991px) {
+    .search_top_bar {
+        justify-content: space-between;
+        flex-direction: column;
+        text-align: right;
+    }
+   
+    .search button {
+        left: 267px !important;
+    }
+
+    .connectwallet {
+        margin-top: 12px;
+    }
+
+    .proTable {
+        overflow: scroll;
+    }
+} 
+
+
+@media only screen and (max-width: 767px) {
+    .search button {
+        left: 107px !important;
+        top: 560px !important;
+    }
+
+    .fund {
+        margin-bottom: 20px;
+    }
+
+    .navbar {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        -ms-flex-align: center;
+        -ms-flex-pack: justify;
+        padding: 0.5rem 1rem;
+        flex-direction: column;
+        align-content: flex-start;
+    }
+
+    .toggle_btn {
+        display: block !important;
+    }
+
+    .logo {
+        text-align: center;
+        display: flex;
+        margin: 0 !important;
+    }
+
+    nav.navbar.navbar-expand-md {
+        padding: 0 !important;
+    }
+
+    
+   
+} 
+
+@media only screen and (max-width: 640px) {
+    .search button {
+        left: 23px !important;
+        top: 544px !important;
+    }
+   
+} 
+
+@media only screen and (max-width: 480px) {
+    .search input {
+        width: 100% !important;
+    }
+
+    td {
+        width: 29px !important;
+        text-align: center !important;
+        font-size: 13px !important;
+    }
+
+    th {
+        width: 81px !important;
+        text-align: center !important;
+        font-size: 13px !important;
+        padding: 0 !important;
+    }
+
+    .logo {
+        position: relative !important;
+    }
+
+    .connectwallet {
+        position: absolute;
+        top: 4px;
+        right: 10px;
+    }
+
+    .connectwallet button {
+        background-color: #302F31;
+        font-size: 14px !important;
+    }
+
+    tbody tr td {
+        padding: 9px;
+        min-width: 113px;
+        font-size: 15px !important;
+    }
+
+    table tr, td, th {
+        border: 1px solid #f9f6f6;
+        padding: 10px !important;
+    }
+
+    .search_top_bar {
+        padding: 0px !important;
+    }
+
+    .hello {
+        width: 100%;
+    }
+   
+} 
+
+@media (min-width: 768px){
+.navbar-expand-md .navbar-collapse {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    flex-direction: column;
+}
+
+}
