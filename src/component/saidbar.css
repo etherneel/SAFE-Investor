@@ -65,8 +65,9 @@ div.content {
 .logo {
   width: 100%;
   padding: 17px 0px 15px 11px;
-  border-bottom: 1px solid #303031;
+  /* border-bottom: 1px solid #303031; */
   margin-bottom: 5px;
+  background-color: rgb(32 32 32);
 }
 
 .menu2 {

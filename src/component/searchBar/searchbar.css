@@ -1,9 +1,8 @@
 .search_top_bar {
-    background-color: #FFFFFF;
+    background-color: rgb(32 32 32);  
     width: 100%;
     display: flex;
-    border-bottom: 1px solid #d3d3d3;
-    padding: 14px;
+    padding: 6.5px;
     justify-content: flex-end;
 }
 
@@ -29,7 +28,7 @@
 
 
 .connectwallet button {
-    background-color: #302F31;
+    background-color: rgb(24 22 22);
     border: none;
     color: white;
     padding: 6px 22px;
@@ -90,3 +89,30 @@
         width: 100%;
     }
 } */
+
+table tr, td, th {
+    border: 1px solid #313030;
+}
+
+
+
+/* width */
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .sidebar::-webkit-scrollbar-track {
+    background: #151718;
+  }
+  
+  /* Handle */
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #313030;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #313030;
+  }

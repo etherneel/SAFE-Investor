@@ -6,6 +6,7 @@ import {
   ConnectWallet,
   useAddress,
   useContract,
+  useContractRead,
   // eslint-disable-next-line no-unused-vars
  
   useContractWrite,
@@ -14,14 +15,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Proposals from "./component/Proposals";
 function App() {
+  const [fundData, setFundData] = useState("")
+  const [maticData, setMaticData] = useState("")
+  const [ethData, setETHData] = useState("")
   const address = useAddress();
   const [userDetails, setUserDetails] = useState([]);
   const [Loading, setloading] = useState(false);
   const { contract } = useContract(
-    "0x59C4b1D7d10762Fa8F34866ece433ACD03784Af4"
+    "0x8b11B5Eb8D9e85BB1d5D74b8718Ab0d883cDb94B"
   );
-  console.log(address)
-  // eslint-disable-next-line no-unused-vars
+   // eslint-disable-next-line no-unused-vars
   const { mutateAsync: signProposal, isLoading } = useContractWrite(
     contract,
     "signProposal"
@@ -32,8 +35,15 @@ function App() {
  // const [singleData, setSingleData] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [formData, setformData] = useState([]);
-  // const { mutateAsync: investorApprovals, isLoading1 } = useContractRead(contract, "investorApprovals");
-console.log(table)
+
+  const { data: admin, isLoading: isAdminLoading } =
+    useContractRead(contract, "owner");
+ 
+
+ console.log(admin)
+
+
+ 
   const handleInputChange = (singleData) => {
     console.log(singleData,"Single data console")
     let formData = {
@@ -66,8 +76,7 @@ console.log(table)
       const response = await axios.post(
         "http://localhost:3100/create-pdf",
         formData
-      );
-     
+      );     
       
       if (response.status === 200) {
         setloading(false)
@@ -78,25 +87,41 @@ console.log(table)
             autoClose: 2500,
           }
         );
+       
       } else {
         console.error("Failed to create PDF and send email");
       }
     } catch (error) {
       console.error("Error during the POST request:", error);
     }
+    
+
+
   };
+  
+
+ const [errors, setErrors] = useState("")
+  console.log(errors.message)
 
   async function sign (name2, _index, formData, handleSubmit) {
     console.log(name2, _index, formData, handleSubmit,"Signbutton console")
     try {
       setloading(true)
-      const data = await signProposal({ args: [name2, _index] });
+      const data = await signProposal({ args: [_index] });
       console.info("contract call successs", data);
       // console.log("hello2222");
      await handleSubmit(formData);
     } catch (err) {
-      console.error("contract call failure", err);
+      console.error(err.message);
+      toast.error(
+       "Investor needs to be whitelisted", 
+        {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 2500,
+        }
+      );
       setloading(false)
+      setErrors(err)
       // console.log("hello 33333333");
     }
   };
@@ -110,7 +135,7 @@ console.log(table)
       let index = data[i].proposal_index;
       // console.log(name, index);
 
-      const data1 = await contract.call("investorApprovals", [name, i]);
+      const data1 = await contract?.call("investorProposalApprovals", [name, i]);
         //console.log("d1 ",i, data1);
       if (data1 === true || data1 === false) {
         setSigned((signed) => [...signed, data1]);
@@ -134,6 +159,61 @@ console.log(table)
       console.error("Error fetching user data:", error);
     }
   };
+
+
+  const getBnbFund = async () => {
+    try {
+     
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd`
+      );
+      setFundData(response.data.binancecoin.usd);
+ 
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(()=>{
+    getBnbFund()
+  }, [])
+
+  const getMaticData = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd`
+      );
+      setMaticData(response.data["matic-network"]["usd"]);
+ 
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(()=>{
+    getMaticData()
+  }, [])
+
+
+  const getETHData = async () => {
+    try {
+     
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`
+      );
+      setETHData(response.data.ethereum.usd);
+ 
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(()=>{
+    getETHData()
+  }, [])
+
+
+
 
   // console.log(userDetails);
 
@@ -159,6 +239,7 @@ console.log(table)
         </div>
       </div>
       <div className="content rightsidediv">
+
         <div className="dashbord">
           <div className="container">
             <div className="section1">
@@ -175,32 +256,31 @@ console.log(table)
               <div className="row">
                 <div className="col-lg-3">
                   <div className="fund">
-                    <h6>FUND</h6>
-                    <h2>$974,99</h2>
-                    <div className="grow">
-                      <p>from last week</p>
-                      <p className="gropar">7.85%</p>
-                    </div>
+                  <img className="box_logo" src="/bnblogo.svg"/>
+                  <div className="data_box">
+                    <h6>BNB</h6>
+                    <h2>$ {fundData ? fundData : "0.00"}</h2>
+                  </div>
                   </div>
                 </div>
                 <div className="col-lg-3">
                   <div className="fund">
+                  <img className="box_logo" src="/maticlogo.svg"/>
+                  <div className="data_box">
                     <h6>MATIC</h6>
-                    <h2>$425,30</h2>
-                    <div className="grow">
-                      <p>from last week</p>
-                      <p className="gropar">22.30%</p>
-                    </div>
+                    <h2>$ {maticData ? maticData : "0.00"}</h2>
+                  </div>
                   </div>
                 </div>
                 <div className="col-lg-3">
                   <div className="fund">
-                    <h6>USDT</h6>
-                    <h2>$549,61</h2>
+                   <img className="box_logo" src="/ethlogo.svg"/>
+                   <div className="data_box">
+                    <h6>ETH</h6>
+                    <h2>$ {ethData ? ethData : "0.00"}</h2>
                     <div className="grow">
-                      <p>from last week</p>
-                      <p className="gropar">9.50%</p>
-                    </div>
+                  </div>
+                 </div>
                   </div>
                 </div>
               </div>
@@ -212,9 +292,8 @@ console.log(table)
               <div className="propasal">
                 <h4 onClick={()=>setTable(false)}> Proposals</h4>
                 <div style={{width:"10px"}}></div>
-                <h4> || </h4>
-                <div style={{width:"10px"}}></div>
-                <h4 onClick={()=>setTable(true)}>All Proposals</h4>
+               
+               
               </div>
 
               {table===false ? <div className="proTable">
@@ -274,6 +353,7 @@ console.log(table)
             </div>
           </div>
         </div>
+
       </div>
     </div>
     
