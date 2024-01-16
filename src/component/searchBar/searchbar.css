@@ -6,6 +6,12 @@
     justify-content: flex-end;
 }
 
+@media(min-width:768px){
+       .search_top_bar{
+        height: 64px;
+       }
+}
+
 
 
 .search input {

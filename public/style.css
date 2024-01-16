@@ -31,6 +31,7 @@ body {
         justify-content: space-between;
         flex-direction: column;
         text-align: right;
+        
     }
    
     .search button {
@@ -127,6 +128,7 @@ body {
     .connectwallet button {
         background-color: #302F31;
         font-size: 14px !important;
+        height: 48px;
     }
 
     tbody tr td {

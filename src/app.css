@@ -193,6 +193,7 @@ table tr, td, th {
 
   .rightsidediv{
     position: relative !important;
+   
   }
 
 .MuiLinearProgress-root::before {
